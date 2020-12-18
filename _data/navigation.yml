@@ -3,7 +3,9 @@ main:
   - title: "Publications"
     url: /publications/
 
-        
+  - title: "Robotic Competitions"
+    url: /competitions/
+
   - title: "Blog Posts"
     url: /year-archive/
     
