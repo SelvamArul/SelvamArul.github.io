@@ -23,7 +23,7 @@ Research Projects
 
 Awards & Recognition
 ======
-* [Finalist for Best Automation Paper Award Finalist](http://localhost:4000/publication/2017-05-01-ICRA), IEEE International Conference on Robotics and Automation (ICRA), Singapore, May 2017.
+* [Finalist for Best Automation Paper Award Finalist](https://selvamarul.github.io//publication/2017-05-01-ICRA), IEEE International Conference on Robotics and Automation (ICRA), Singapore, May 2017.
 * [2nd Place in Grand Challenge](http://ais.uni-bonn.de/nimbro/MBZIRC/), Mohamed Bin Zayed International Robotics Challenge (MBZIRC), Abu Dhabi, UAE, February, 2020
 * [2nd Place in Challenge II](http://ais.uni-bonn.de/nimbro/MBZIRC/), Mohamed Bin Zayed International Robotics Challenge (MBZIRC), Abu Dhabi, UAE, February, 2020.
 * [2nd Place in Pick task](http://ais.uni-bonn.de/nimbro/Picking/index.html), Amazon Robotics Challenge, Nagoya, Japan, July, 2017.  Prize money: USD 10,000.
