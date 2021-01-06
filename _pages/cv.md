@@ -30,7 +30,7 @@ Awards & Recognition
 * [2nd Place in Final round](http://ais.uni-bonn.de/nimbro/Picking/index.html), Amazon Robotics Challenge, Nagoya, Japan, July, 2017.  Prize money: USD 40,000.
 * [Winners of Grand Challenge](http://ais.uni-bonn.de/nimbro/MBZIRC/), Mohamed Bin Zayed International Robotics Challenge (MBZIRC), Abu Dhabi, UAE, March, 2017. Prize money: USD 1,000,000.
 * [Winners of Ground Robotics Challenge](http://ais.uni-bonn.de/nimbro/MBZIRC/), Mohamed Bin Zayed International Robotics Challenge (MBZIRC), Abu Dhabi, UAE, March, 2017. Prize money: USD 350,000.
-* [3nd Place in Pick task](http://ais.uni-bonn.de/nimbro/Picking/index.html), Amazon Robotics Challenge, Leipzig, Germany, July, 2016. Prize money: USD 10,000
+* [3rd Place in Pick task](http://ais.uni-bonn.de/nimbro/Picking/index.html), Amazon Robotics Challenge, Leipzig, Germany, July, 2016. Prize money: USD 10,000
 * [2nd Place in Stow task](http://ais.uni-bonn.de/nimbro/Picking/index.html), Amazon Robotics Challenge, Leipzig, Germany, July, 2016. Prize money: USD 10,000
 * [Only team to complete all the tasks](https://www.uni-bonn.de/neues/259-2015), SpaceBot camp, Deutsches Zentrum für Luft- und Raumfahrt köln, Germany, November, 2015 
 
