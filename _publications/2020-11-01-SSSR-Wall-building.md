@@ -1,5 +1,6 @@
 ---
 title: "Autonomous Wall Building with a UGV-UAV Team at MBZIRC 2020"
+citation: "Christian Lenz, Max Schwarz, Andre Rochow, Jan Razlaw, <b>Arul Selvam Periyasamy</b>, Michael Schreiber, and Sven Behnke"
 collection: publications
 permalink: /publication/2020-11-01-SSSR-Wall-building
 date: 2020-11-01

@@ -211,7 +211,7 @@
 /*  Duplication of the FontAwesome style classes using 'ai' in place of 'fa'. */
 .ai-lg {
   font-size: 1.33333333em;
-  line-height: 0.75em;
+  line-height: 0.25em;
   vertical-align: -15%;
 }
 .ai-2x {
@@ -271,7 +271,7 @@
  */
 .fa-lg {
   font-size: 1.33333333em;
-  line-height: 0.75em;
+  line-height: 0.25em;
   vertical-align: -15%;
 }
 .fa-2x {
