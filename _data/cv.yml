@@ -5,7 +5,6 @@ cv:
   location: Munich, Germany
   image: ""
   summary: "I am a Research Scientist in Edge Computing at Siemens AG. Previously, I earned my Ph.D. from the University of Bonn within the Autonomous Intelligent Systems group, where I contributed to developing award-winning robotics systems. I bring extensive expertise in cognitive robotics, machine learning, image processing, and artificial intelligence. I look forward to applying these skills at my new company to build intelligent robotic systems that help make the world a better place"
-  
 
   social_networks:
     - network: GitHub
@@ -37,7 +36,6 @@ cv:
         start_date: 2015
         end_date: 2018
 
-
     Experience:
       - company: Siemens AG
         position: Research Scientist
@@ -46,41 +44,39 @@ cv:
         end_date: current
         summary: Research Scientist in Edge and Confidential Computing
 
-
       - company: Siemens AG
         position: Postdoctoral Researcher
         location: Garching bei München
         start_date: 2024
         end_date: 2026
 
-
     Awards:
       - title: 2nd Place in Grand Challenge
         authors:
           - " Mohamed Bin Zayed International Robotics Challenge (MBZIRC)"
         date: 2020-03-01
-        awarder:  Mohamed Bin Zayed International Robotics Challenge (MBZIRC)
+        awarder: Mohamed Bin Zayed International Robotics Challenge (MBZIRC)
         url: http://ais.uni-bonn.de/nimbro/MBZIRC/
 
       - title: 2nd Place in Robotic Challenge
         authors:
           - "Amazon Robotics Challenge"
         date: 2018-05-21
-        awarder:  Amazon Robotics Challenge
+        awarder: Amazon Robotics Challenge
         url: http://ais.uni-bonn.de/nimbro/Picking/
 
       - title: Winners of Grand Challenge & Ground Robotics Challenge
         authors:
           - "Mohamed Bin Zayed International Robotics Challenge (MBZIRC)"
         date: 2017-03-01
-        awarder:  Mohamed Bin Zayed International Robotics Challenge (MBZIRC)
+        awarder: Mohamed Bin Zayed International Robotics Challenge (MBZIRC)
         url: http://ais.uni-bonn.de/nimbro/MBZIRC/
 
       - title: 2nd Place in Stowing 6 3rd Place in Picking
         authors:
           - "Amazon Picking Challenge"
         date: 2016-17-01
-        awarder:  Amazon Picking Challenge
+        awarder: Amazon Picking Challenge
         url: http://ais.uni-bonn.de/nimbro/Picking/
 
     Projects:
@@ -95,7 +91,7 @@ cv:
         highlights:
         start_date: 2020-01-01
         end_date: 2020-12-30
-      
+
       - name: Amazon Research Grant
         summary: Generalizing Scene Parsing for Cluttered Bin Picking
         highlights:
@@ -115,10 +111,9 @@ cv:
       - name: Robotics
         icon: fa-solid fa-robot
         keywords: "Navigation, RGB-D Perception, SLAM"
-      - name: Edge & Cloud 
+      - name: Edge & Cloud
         icon: fa-solid fa-cloud
         keywords: "Kubernetes, Docker, Confidential Containers"
-
 
     Languages:
       - name: English
