@@ -51,15 +51,15 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-a-post-with-code",
+            },{id: "post-rust-vs-go-error-handling",
         
-          title: "a post with code",
+          title: "Rust vs. Go error handling",
         
-        description: "an example of a blog post with some code",
+        description: "Rust vs. Go error handling",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/code/";
+            window.location.href = "/blog/2026/Rust-Error/";
           
         },
       },{id: "news-starting-a-new-position-at-siemens-ag-as-a-postdoctoral-researcher-in-edge-computing",

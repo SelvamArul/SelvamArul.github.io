@@ -1,33 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://selvamarul.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://selvamarul.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2026-02-13T21:16:52+00:00</updated><id>https://selvamarul.github.io//feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">a post with code</title><link href="https://selvamarul.github.io//blog/2026/code/" rel="alternate" type="text/html" title="a post with code"/><published>2026-02-13T15:09:00+00:00</published><updated>2026-02-13T15:09:00+00:00</updated><id>https://selvamarul.github.io//blog/2026/code</id><content type="html" xml:base="https://selvamarul.github.io//blog/2026/code/"><![CDATA[<p>This theme implements a built-in Jekyll feature, the use of Rouge, for syntax highlighting. It supports more than 100 languages. This example is in C++. All you have to do is wrap your code in markdown code tags:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">```</span><span class="nl">c++
-</span><span class="n">code</span> <span class="n">code</span> <span class="n">code</span>
-<span class="p">```</span>
-</code></pre></div></div> <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="err">\</span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-    <span class="n">string</span> <span class="n">myString</span><span class="p">;</span>
-
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"input a string: "</span><span class="p">;</span>
-    <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">myString</span><span class="p">);</span>
-    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">myString</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
-
-    <span class="kt">char</span> <span class="n">charArray</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span> <span class="o">*</span> <span class="p">[</span><span class="n">length</span><span class="p">];</span>
-
-    <span class="n">charArray</span> <span class="o">=</span> <span class="n">myString</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">charArray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div></div> <p>For displaying code in a list item, you have to be aware of the indentation, as stated in <a href="https://github.com/planetjekyll/quickrefs/blob/master/FAQ.md#q-how-can-i-get-backtick-fenced-code-blocks-eg--working-inside-lists-with-kramdown">this FAQ</a>. You must indent your code by <strong>(3 * bullet_indent_level)</strong> spaces. This is because kramdown (the markdown engine used by Jekyll) indentation for the code block in lists is determined by the column number of the first non-space character after the list item marker. For example:</p> <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">1.</span> We can put fenced code blocks inside nested bullets, too.
-<span class="p">   1.</span> Like this:<span class="sb">
-
-      ```c
-      printf("Hello, World!");
-      ```
-
-</span><span class="p">   2.</span> The key is to indent your fenced block in the same line as the first character of the line.
-</code></pre></div></div> <p>Which displays:</p> <ol> <li>We can put fenced code blocks inside nested bullets, too. <ol> <li> <p>Like this:</p> <div class="language-c highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">printf</span><span class="p">(</span><span class="s">"Hello, World!"</span><span class="p">);</span>
-</code></pre></div> </div> </li> <li> <p>The key is to indent your fenced block in the same line as the first character of the line.</p> </li> </ol> </li> </ol> <p>By default, it does not display line numbers. If you want to display line numbers for every code block, you can set <code class="language-plaintext highlighter-rouge">kramdown.syntax_highlighter_opts.block.line_numbers</code> to true in your <code class="language-plaintext highlighter-rouge">_config.yml</code> file.</p> <p>If you want to display line numbers for a specific code block, all you have to do is wrap your code in a liquid tag:</p> <p>{% highlight c++ linenos %} <br/> code code code <br/> {% endhighlight %}</p> <p>The keyword <code class="language-plaintext highlighter-rouge">linenos</code> triggers display of line numbers. Produces something like this:</p> <figure class="highlight"><pre><code class="language-c--" data-lang="c++"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://selvamarul.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://selvamarul.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2026-02-14T13:16:14+00:00</updated><id>https://selvamarul.github.io//feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">Rust vs. Go error handling</title><link href="https://selvamarul.github.io//blog/2026/Rust-Error/" rel="alternate" type="text/html" title="Rust vs. Go error handling"/><published>2026-02-13T15:09:00+00:00</published><updated>2026-02-13T15:09:00+00:00</updated><id>https://selvamarul.github.io//blog/2026/Rust-Error</id><content type="html" xml:base="https://selvamarul.github.io//blog/2026/Rust-Error/"><![CDATA[<p>Lately, I’ve been programming a lot in Go and Rust. During my Ph.D. years, most of my research code—particularly machine learning (ML) code—was written in Python, and C++ was the primary language I used for programming with ROS. C was the first programming language I learned back in high school, and C++ followed soon after. I would even say my algorithmic thinking is shaped by C++ more than any other language. However, Go and Rust feel modern—although many experienced programmers would say the concepts are nothing new and have existed in other languages for decades. That’s a discussion for another day.</p> <p>Now, back to Go and Rust. I like the simplicity of Go. Features like built-in concurrency and garbage collection make programming in Go a pleasure. I feel as productive as I used to when writing vectorized NumPy code in Python. However, I can’t help but admire how much Rust keeps me from writing bad code. This philosophy is built into the core of the language and shows in every aspect of the language design. This week I noticed a subtle difference between error handling in Go and Rust that illustrates this.</p> <p>Let’s consider a simple function that reads file content. The following function uses idiomatic Go <a href="https://gobyexample.com/multiple-return-values">multiple return values</a> to return both a value and an error. In fact, the <code class="language-plaintext highlighter-rouge">os.Open</code> library function on line 8 also returns two values: a file handler and an error. Anyone even slightly familiar with Go should have seen the error handling pattern if <code class="language-plaintext highlighter-rouge">err != nil</code> used on line 13 many times. It’s idiomatic to handle errors immediately after a function call.”</p> <figure class="highlight"><pre><code class="language-go" data-lang="go"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -45,22 +16,53 @@
 16
 17
 18
-</pre></td><td class="code"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="err">\</span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
-<span class="p">{</span>
-<span class="n">string</span> <span class="n">myString</span><span class="p">;</span>
+</pre></td><td class="code"><pre><span class="k">package</span> <span class="n">main</span>
 
-    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"input a string: "</span><span class="p">;</span>
-    <span class="n">getline</span><span class="p">(</span><span class="n">cin</span><span class="p">,</span> <span class="n">myString</span><span class="p">);</span>
-    <span class="kt">int</span> <span class="n">length</span> <span class="o">=</span> <span class="n">myString</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
-
-    <span class="kt">char</span> <span class="n">charArray</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">char</span> <span class="o">*</span> <span class="p">[</span><span class="n">length</span><span class="p">];</span>
-
-    <span class="n">charArray</span> <span class="o">=</span> <span class="n">myString</span><span class="p">;</span>
-    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
-        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">charArray</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">(</span>
+    <span class="s">"os"</span>
+    <span class="s">"io"</span>
+<span class="p">)</span>
+<span class="k">func</span> <span class="n">readFileContent</span><span class="p">()</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">file</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"data.txt"</span><span class="p">)</span> <span class="c">// Returns both file AND error</span>
+    <span class="c">// DANGER: file might be nil, but it's still accessible!   </span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">""</span><span class="p">,</span> <span class="n">err</span>
     <span class="p">}</span>
-
-    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-
+    <span class="n">content</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">io</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">""</span><span class="p">,</span> <span class="n">err</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kt">string</span><span class="p">(</span><span class="n">content</span><span class="p">),</span> <span class="no">nil</span>
 <span class="p">}</span>
-</pre></td></tr></tbody></table></code></pre></figure>]]></content><author><name></name></author><category term="sample-posts"/><category term="rust"/><category term="go"/><summary type="html"><![CDATA[an example of a blog post with some code]]></summary></entry></feed>
+</pre></td></tr></tbody></table></code></pre></figure> <p>Let’s compare this with error handling in Rust using <a href="https://doc.rust-lang.org/std/result/">Result</a> type.</p> <figure class="highlight"><pre><code class="language-rust" data-lang="rust"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">fs</span><span class="p">::</span><span class="n">File</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">io</span><span class="p">::</span><span class="n">Read</span><span class="p">;</span>
+<span class="k">fn</span> <span class="nf">read_file_content</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nn">std</span><span class="p">::</span><span class="nn">io</span><span class="p">::</span><span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// File::open returns Result&lt;File, Error&gt;</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">file</span> <span class="o">=</span> <span class="nn">File</span><span class="p">::</span><span class="nf">open</span><span class="p">(</span><span class="s">"data.txt"</span><span class="p">)</span><span class="o">?</span><span class="p">;</span> <span class="c1">// Either succeeds OR returns early</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">content</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+    <span class="n">file</span><span class="nf">.read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">content</span><span class="p">)</span><span class="o">?</span><span class="p">;</span> <span class="c1">// file is GUARANTEED to be valid here</span>
+    <span class="nf">Ok</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></figure> <p>In this example, can return a value of <code class="language-plaintext highlighter-rouge">String</code> type if the functions succeeds wihtout any errors or value of tpye if an error occurs. Note that the library function also returns . The interesting aspect of Rust error handling is, in case of an error in <code class="language-plaintext highlighter-rouge">File::open</code> , the function immediately returns with and the rest if of the lines are not executed. Compare this with Go’s pattern that is not enfored by the compiler.</p> <p>In this example, <code class="language-plaintext highlighter-rouge">read_file_content</code> can return a value of <code class="language-plaintext highlighter-rouge">String</code> type if the function succeeds without any errors, or a value of <code class="language-plaintext highlighter-rouge">std::io::Error</code> type if an error occurs. Note that the library function <code class="language-plaintext highlighter-rouge">File::open</code> also returns <code class="language-plaintext highlighter-rouge">Result&lt;File, Error&gt;</code>. The interesting aspect of Rust error handling is that in case of an error in <code class="language-plaintext highlighter-rouge">File::open</code> , the function <code class="language-plaintext highlighter-rouge">read_file_content</code> immediately returns with <code class="language-plaintext highlighter-rouge">std::io::Error</code> and the rest of the lines are not executed. This is different from Go’s <code class="language-plaintext highlighter-rouge">err != nil</code> pattern, which is not enforced by the compiler.</p> <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// This Go code compiles but crashes at runtime!</span>
+<span class="k">func</span> <span class="n">brokenExample</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">file</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"nonexistent.txt"</span><span class="p">)</span> <span class="c">// file is nil, err is not nil</span>
+    <span class="c">// Programmer forgets to check err...</span>
+    <span class="n">content</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">io</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="c">// PANIC! Dereferencing nil pointer</span>
+    <span class="nb">println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">content</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div></div> <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// This Rust is IMPOSSIBLE to compile:</span>
+<span class="k">fn</span> <span class="nf">broken_example</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">file</span> <span class="o">=</span> <span class="nn">File</span><span class="p">::</span><span class="nf">open</span><span class="p">(</span><span class="s">"data.txt"</span><span class="p">);</span> <span class="c1">// This is Result&lt;File, Error&gt;</span>
+    <span class="c1">// file.read_to_string(&amp;mut String::new()); // COMPILER ERROR!</span>
+    <span class="c1">// Cannot call methods on Result - must handle the error first!</span>
+<span class="p">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="programming-laguages"/><category term="rust"/><category term="go"/><summary type="html"><![CDATA[Rust vs. Go error handling]]></summary></entry></feed>
