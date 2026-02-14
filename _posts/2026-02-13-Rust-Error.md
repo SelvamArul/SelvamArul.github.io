@@ -18,42 +18,40 @@ Let's consider a simple function that reads file content. The following function
 package main
 
 import (
-    "os"
-    "io"
+"os"
+"io"
 )
 func readFileContent() (string, error) {
-    file, err := os.Open("data.txt") // Returns both file AND error
-    // DANGER: file might be nil, but it's still accessible!   
-    if err != nil {
-        return "", err
-    }
-    content, err := io.ReadAll(file)
-    if err != nil {
-        return "", err
-    }
-    return string(content), nil
+file, err := os.Open("data.txt") // Returns both file AND error
+// DANGER: file might be nil, but it's still accessible!  
+ if err != nil {
+return "", err
+}
+content, err := io.ReadAll(file)
+if err != nil {
+return "", err
+}
+return string(content), nil
 }
 {% endhighlight %}
 
-Let's compare this with error handling in Rust using [Result](https://doc.rust-lang.org/std/result/) type. 
+Let's compare this with error handling in Rust using [Result](https://doc.rust-lang.org/std/result/) type.
 
 {% highlight rust linenos %}
 use std::fs::File;
 use std::io::Read;
 fn read_file_content() -> Result<String, std::io::Error> {
-    // File::open returns Result<File, Error>
-    let mut file = File::open("data.txt")?; // Either succeeds OR returns early
-    let mut content = String::new();
-    file.read_to_string(&mut content)?; // file is GUARANTEED to be valid here
-    Ok(content)
+// File::open returns Result<File, Error>
+let mut file = File::open("data.txt")?; // Either succeeds OR returns early
+let mut content = String::new();
+file.read_to_string(&mut content)?; // file is GUARANTEED to be valid here
+Ok(content)
 }
 {% endhighlight %}
 
-In this example,  can return a value of `String` type if the functions succeeds wihtout any errors or value of  tpye if an error occurs.  Note that the library function also returns . The interesting aspect of Rust error handling is, in case of an error in `File::open` , the function  immediately returns with  and the rest if of the lines are not executed. Compare this with Go's  pattern that is not enfored by the compiler. 
+In this example, can return a value of `String` type if the functions succeeds wihtout any errors or value of tpye if an error occurs. Note that the library function also returns . The interesting aspect of Rust error handling is, in case of an error in `File::open` , the function immediately returns with and the rest if of the lines are not executed. Compare this with Go's pattern that is not enfored by the compiler.
 
-
-In this example, `read_file_content` can return a value of `String` type if the function succeeds without any errors, or a value of `std::io::Error` type if an error occurs. Note that the library function `File::open`  also returns `Result<File, Error>`. The interesting aspect of Rust error handling is that in case of an error in `File::open` , the function `read_file_content` immediately returns with `std::io::Error` and the rest of the lines are not executed. This is different from Go's `err != nil` pattern, which is not enforced by the compiler.
-
+In this example, `read_file_content` can return a value of `String` type if the function succeeds without any errors, or a value of `std::io::Error` type if an error occurs. Note that the library function `File::open` also returns `Result<File, Error>`. The interesting aspect of Rust error handling is that in case of an error in `File::open` , the function `read_file_content` immediately returns with `std::io::Error` and the rest of the lines are not executed. This is different from Go's `err != nil` pattern, which is not enforced by the compiler.
 
 ```go
 // This Go code compiles but crashes at runtime!
