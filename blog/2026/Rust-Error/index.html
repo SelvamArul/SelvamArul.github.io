@@ -22,20 +22,20 @@
 </pre></td> <td class="code"><pre><span class="k">package</span> <span class="n">main</span>
 
 <span class="k">import</span> <span class="p">(</span>
-    <span class="s">"os"</span>
-    <span class="s">"io"</span>
+<span class="s">"os"</span>
+<span class="s">"io"</span>
 <span class="p">)</span>
 <span class="k">func</span> <span class="n">readFileContent</span><span class="p">()</span> <span class="p">(</span><span class="kt">string</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">file</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"data.txt"</span><span class="p">)</span> <span class="c">// Returns both file AND error</span>
-    <span class="c">// DANGER: file might be nil, but it's still accessible!   </span>
-    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">""</span><span class="p">,</span> <span class="n">err</span>
-    <span class="p">}</span>
-    <span class="n">content</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">io</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="s">""</span><span class="p">,</span> <span class="n">err</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="kt">string</span><span class="p">(</span><span class="n">content</span><span class="p">),</span> <span class="no">nil</span>
+<span class="n">file</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">os</span><span class="o">.</span><span class="n">Open</span><span class="p">(</span><span class="s">"data.txt"</span><span class="p">)</span> <span class="c">// Returns both file AND error</span>
+<span class="c">// DANGER: file might be nil, but it's still accessible!  </span>
+ <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+<span class="k">return</span> <span class="s">""</span><span class="p">,</span> <span class="n">err</span>
+<span class="p">}</span>
+<span class="n">content</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">io</span><span class="o">.</span><span class="n">ReadAll</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+<span class="k">return</span> <span class="s">""</span><span class="p">,</span> <span class="n">err</span>
+<span class="p">}</span>
+<span class="k">return</span> <span class="kt">string</span><span class="p">(</span><span class="n">content</span><span class="p">),</span> <span class="no">nil</span>
 <span class="p">}</span>
 </pre></td> </tr></tbody></table></code></pre></figure> <p>Let’s compare this with error handling in Rust using <a href="https://doc.rust-lang.org/std/result/" rel="external nofollow noopener" target="_blank">Result</a> type.</p> <figure class="highlight"><pre><code class="language-rust" data-lang="rust"><table class="rouge-table"><tbody><tr>
 <td class="gutter gl"><pre class="lineno">1
@@ -50,11 +50,11 @@
 </pre></td> <td class="code"><pre><span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">fs</span><span class="p">::</span><span class="n">File</span><span class="p">;</span>
 <span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">io</span><span class="p">::</span><span class="n">Read</span><span class="p">;</span>
 <span class="k">fn</span> <span class="nf">read_file_content</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="p">,</span> <span class="nn">std</span><span class="p">::</span><span class="nn">io</span><span class="p">::</span><span class="n">Error</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="c1">// File::open returns Result&lt;File, Error&gt;</span>
-    <span class="k">let</span> <span class="k">mut</span> <span class="n">file</span> <span class="o">=</span> <span class="nn">File</span><span class="p">::</span><span class="nf">open</span><span class="p">(</span><span class="s">"data.txt"</span><span class="p">)</span><span class="o">?</span><span class="p">;</span> <span class="c1">// Either succeeds OR returns early</span>
-    <span class="k">let</span> <span class="k">mut</span> <span class="n">content</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
-    <span class="n">file</span><span class="nf">.read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">content</span><span class="p">)</span><span class="o">?</span><span class="p">;</span> <span class="c1">// file is GUARANTEED to be valid here</span>
-    <span class="nf">Ok</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<span class="c1">// File::open returns Result&lt;File, Error&gt;</span>
+<span class="k">let</span> <span class="k">mut</span> <span class="n">file</span> <span class="o">=</span> <span class="nn">File</span><span class="p">::</span><span class="nf">open</span><span class="p">(</span><span class="s">"data.txt"</span><span class="p">)</span><span class="o">?</span><span class="p">;</span> <span class="c1">// Either succeeds OR returns early</span>
+<span class="k">let</span> <span class="k">mut</span> <span class="n">content</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+<span class="n">file</span><span class="nf">.read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">content</span><span class="p">)</span><span class="o">?</span><span class="p">;</span> <span class="c1">// file is GUARANTEED to be valid here</span>
+<span class="nf">Ok</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></td> </tr></tbody></table></code></pre></figure> <p>In this example, can return a value of <code class="language-plaintext highlighter-rouge">String</code> type if the functions succeeds wihtout any errors or value of tpye if an error occurs. Note that the library function also returns . The interesting aspect of Rust error handling is, in case of an error in <code class="language-plaintext highlighter-rouge">File::open</code> , the function immediately returns with and the rest if of the lines are not executed. Compare this with Go’s pattern that is not enfored by the compiler.</p> <p>In this example, <code class="language-plaintext highlighter-rouge">read_file_content</code> can return a value of <code class="language-plaintext highlighter-rouge">String</code> type if the function succeeds without any errors, or a value of <code class="language-plaintext highlighter-rouge">std::io::Error</code> type if an error occurs. Note that the library function <code class="language-plaintext highlighter-rouge">File::open</code> also returns <code class="language-plaintext highlighter-rouge">Result&lt;File, Error&gt;</code>. The interesting aspect of Rust error handling is that in case of an error in <code class="language-plaintext highlighter-rouge">File::open</code> , the function <code class="language-plaintext highlighter-rouge">read_file_content</code> immediately returns with <code class="language-plaintext highlighter-rouge">std::io::Error</code> and the rest of the lines are not executed. This is different from Go’s <code class="language-plaintext highlighter-rouge">err != nil</code> pattern, which is not enforced by the compiler.</p> <div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// This Go code compiles but crashes at runtime!</span>
 <span class="k">func</span> <span class="n">brokenExample</span><span class="p">()</span> <span class="p">{</span>
