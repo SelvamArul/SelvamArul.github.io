@@ -4,7 +4,7 @@ cv:
   email: doktorandarul@gmail.com
   location: Munich, Germany
   image: ""
-  summary: "I am a Research Scientist in Edge Computing at Siemens AG. Previously, I earned my Ph.D. from the University of Bonn within the Autonomous Intelligent Systems group, where I contributed to developing award-winning robotics systems. I bring extensive expertise in cognitive robotics, machine learning, image processing, and artificial intelligence. I look forward to applying these skills at my new company to build intelligent robotic systems that help make the world a better place"
+  summary: "Research Scientist in Edge Computing with expertise in developing and deploying AI models for advanced scene understanding applications. Specialized in object pose estimation algorithms and contributed perception modules for award-winning research robots. Proven track record in the complete AI development lifecycle, from model training to deployment across both cloud and edge computing environments. Combines deep technical knowledge in computer vision and machine learning with practical experience in robotics applications and cloud-based AI deployment strategies."
 
   social_networks:
     - network: GitHub
@@ -107,7 +107,7 @@ cv:
     Skills:
       - name: Computer Vision
         icon: fa-solid fa-eye
-        keywords: "Object Detection & Pose Estimatino, Semantic Segmentation, Deep learning"
+        keywords: "Object Detection & Pose Estimation, Semantic Segmentation, Deep learning, large language models (LLMs) & world models (WMs)"
       - name: Robotics
         icon: fa-solid fa-robot
         keywords: "Navigation, RGB-D Perception, SLAM"
