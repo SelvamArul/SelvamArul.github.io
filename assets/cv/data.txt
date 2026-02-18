@@ -1,0 +1,16 @@
+Established research initiatives and successfully secured European Union (EU) funding for confidential edge computing projects.
+Developed real-time confidential computing capabilities for a Docker-based edge platform, contributing across the full technology stack from real-time networking and virtualization layers to guest kernel components and system-level integration.
+Contributed to the development of a large language model (LLM)-based internal code search service.
+Supervised interns and working students, providing mentorship and guidance in technical projects.
+
+
+Introduced novel vision transformer algorithms for multi-object 6D pose estimation and tracking in cluttered environments.
+Developed pose refinement and shape refinement methods using render-and-compare techniques, and co-developed a highly efficient differentiable renderer for scalable render-and-compare operations.
+Implemented simultaneous localization and mapping (SLAM) and navigation modules for mobile robotics applications.
+Deployed deep learning models on Google Edge TPUs and NVIDIA Jetson platforms for edge computing applications.
+Supervised Master's and Bachelor's theses, laboratory courses, and academic seminars.
+
+
+Implemented a comprehensive navigation stack for autonomous exploration robotics applications.
+Developed an object detection module for mobile robot perception and autonomous operation.
+Implemented semantic segmentation and pose estimation modules for automated bin-picking robotic systems.
