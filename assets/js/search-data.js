@@ -37,21 +37,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "dropdown-projects",
-              title: "projects",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/projects/";
-              },
-            },{id: "dropdown-blog",
-              title: "blog",
-              description: "",
-              section: "Dropdown",
-              handler: () => {
-                window.location.href = "/blog/";
-              },
-            },{id: "post-direct-linear-transform-the-swiss-army-knife-of-computer-vision",
+        },{id: "post-direct-linear-transform-the-swiss-army-knife-of-computer-vision",
         
           title: "Direct Linear Transform: The Swiss Army Knife of Computer Vision",
         
@@ -59,7 +45,7 @@ ninja.data = [{
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/Eigen-value/";
+            window.location.href = "/blog/2026/DLT/";
           
         },
       },{id: "post-rust-vs-go-error-handling",
