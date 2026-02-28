@@ -51,7 +51,18 @@ ninja.data = [{
               handler: () => {
                 window.location.href = "/blog/";
               },
-            },{id: "post-rust-vs-go-error-handling",
+            },{id: "post-direct-linear-transform-the-swiss-army-knife-of-computer-vision",
+        
+          title: "Direct Linear Transform: The Swiss Army Knife of Computer Vision",
+        
+        description: "Understanding the mathematical foundation behind fundamental matrices, homographies, and camera calibration",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Eigen-value/";
+          
+        },
+      },{id: "post-rust-vs-go-error-handling",
         
           title: "Rust vs. Go error handling",
         
