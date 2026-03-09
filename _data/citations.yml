@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-02-23'
+  last_updated: '2026-03-09'
 papers:
   _6l7MQgAAAAJ:-f6ydRqryjwC:
     citations: 4
@@ -38,7 +38,7 @@ papers:
     title: Refining 6D object pose predictions using abstract render-and-compare
     year: '2019'
   _6l7MQgAAAAJ:UHK10RUVsp4C:
-    citations: 6
+    citations: 7
     title: 'ConvPoseCNN2: Prediction and Refinement of Dense 6D Object Poses'
     year: '2022'
   _6l7MQgAAAAJ:URolC5Kub84C:
@@ -102,7 +102,7 @@ papers:
     title: 'Nimbro Picking: Versatile part handling for warehouse automation'
     year: '2017'
   _6l7MQgAAAAJ:u5HHmVD_uO8C:
-    citations: 37
+    citations: 38
     title: Supervised Autonomy for Exploration and Mobile Manipulation in Rough Terrain with a Centaur-like Robot
     year: '2016'
   _6l7MQgAAAAJ:uLbwQdceFCQC:
@@ -110,6 +110,6 @@ papers:
     title: Towards 3D scene understanding using differentiable rendering
     year: '2023'
   _6l7MQgAAAAJ:zYLM7Y9cAGgC:
-    citations: 102
+    citations: 103
     title: "Remote mobile manipulation with the centauro robot: Full\u2010body telepresence and autonomous operator assistance"
     year: '2020'
