@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-03-09'
+  last_updated: '2026-03-13'
 papers:
   _6l7MQgAAAAJ:-f6ydRqryjwC:
     citations: 4
@@ -42,7 +42,7 @@ papers:
     title: 'ConvPoseCNN2: Prediction and Refinement of Dense 6D Object Poses'
     year: '2022'
   _6l7MQgAAAAJ:URolC5Kub84C:
-    citations: 28
+    citations: 30
     title: 'YOLOPose V2: Understanding and improving transformer-based 6D pose estimation'
     year: '2023'
   _6l7MQgAAAAJ:UeHWp8X0CEIC:
@@ -102,7 +102,7 @@ papers:
     title: 'Nimbro Picking: Versatile part handling for warehouse automation'
     year: '2017'
   _6l7MQgAAAAJ:u5HHmVD_uO8C:
-    citations: 38
+    citations: 37
     title: Supervised Autonomy for Exploration and Mobile Manipulation in Rough Terrain with a Centaur-like Robot
     year: '2016'
   _6l7MQgAAAAJ:uLbwQdceFCQC:
