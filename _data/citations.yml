@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-03-13'
+  last_updated: '2026-03-27'
 papers:
   _6l7MQgAAAAJ:-f6ydRqryjwC:
     citations: 4
@@ -14,15 +14,15 @@ papers:
     title: Fast object learning and dual-arm coordination for cluttered stowing, picking, and packing
     year: '2018'
   _6l7MQgAAAAJ:5ugPr518TE4C:
-    citations: 44
+    citations: 45
     title: 'YOLOPose: Transformer-based multi-object 6D pose estimation using keypoint regression'
     year: '2022'
   _6l7MQgAAAAJ:9yKSN-GCB0IC:
-    citations: 207
+    citations: 210
     title: RGB-D object detection and semantic segmentation for autonomous manipulation in clutter
     year: '2018'
   _6l7MQgAAAAJ:BqipwSGYUEgC:
-    citations: 45
+    citations: 46
     title: 'T6D-Direct: Transformers for multi-object 6D pose direct regression'
     year: '2021'
   _6l7MQgAAAAJ:IjCSPb-OGe4C:
@@ -30,19 +30,19 @@ papers:
     title: Autonomous dual-arm manipulation of familiar objects
     year: '2018'
   _6l7MQgAAAAJ:KUbvn5osdkgC:
-    citations: 2
+    citations: 3
     title: Efficient multi-object pose estimation using multi-resolution deformable attention and query aggregation
     year: '2023'
   _6l7MQgAAAAJ:Tyk-4Ss8FVUC:
-    citations: 17
+    citations: 18
     title: Refining 6D object pose predictions using abstract render-and-compare
     year: '2019'
   _6l7MQgAAAAJ:UHK10RUVsp4C:
-    citations: 7
+    citations: 8
     title: 'ConvPoseCNN2: Prediction and Refinement of Dense 6D Object Poses'
     year: '2022'
   _6l7MQgAAAAJ:URolC5Kub84C:
-    citations: 30
+    citations: 31
     title: 'YOLOPose V2: Understanding and improving transformer-based 6D pose estimation'
     year: '2023'
   _6l7MQgAAAAJ:UeHWp8X0CEIC:
@@ -78,7 +78,7 @@ papers:
     title: 'ConvPoseCNN2: Prediction and Refinement of Dense 6D Object Poses'
     year: '2022'
   _6l7MQgAAAAJ:isC4tDSrTZIC:
-    citations: 27
+    citations: 28
     title: 'SynPick: A dataset for dynamic bin picking scene understanding'
     year: '2021'
   _6l7MQgAAAAJ:kuK5TVdYjLIC:
@@ -86,7 +86,7 @@ papers:
     title: 'MOTPose: Multi-object 6D Pose Estimation for Dynamic Video Sequences using Attention-based Temporal Fusion'
     year: '2024'
   _6l7MQgAAAAJ:qjMakFHDy7sC:
-    citations: 24
+    citations: 25
     title: Robust 6D object pose estimation in cluttered scenes using semantic segmentation and pose regression networks
     year: '2018'
   _6l7MQgAAAAJ:tYavs44e6CUC:
@@ -95,10 +95,10 @@ papers:
     year: '2023'
   _6l7MQgAAAAJ:tuHXwOkdijsC:
     citations: 0
-    title: Efficient Methods for Learning Visual Multi-object 6D Pose Estimation and Tracking
-    year: '2026'
+    title: Efficient Methods for Learning Visual Multi-Object 6D Pose Estimation and Tracking
+    year: '2025'
   _6l7MQgAAAAJ:u-x6o8ySG0sC:
-    citations: 110
+    citations: 111
     title: 'Nimbro Picking: Versatile part handling for warehouse automation'
     year: '2017'
   _6l7MQgAAAAJ:u5HHmVD_uO8C:
@@ -110,6 +110,6 @@ papers:
     title: Towards 3D scene understanding using differentiable rendering
     year: '2023'
   _6l7MQgAAAAJ:zYLM7Y9cAGgC:
-    citations: 103
+    citations: 106
     title: "Remote mobile manipulation with the centauro robot: Full\u2010body telepresence and autonomous operator assistance"
     year: '2020'
