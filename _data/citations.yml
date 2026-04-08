@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-03-27'
+  last_updated: '2026-04-08'
 papers:
   _6l7MQgAAAAJ:-f6ydRqryjwC:
     citations: 4
@@ -14,7 +14,7 @@ papers:
     title: Fast object learning and dual-arm coordination for cluttered stowing, picking, and packing
     year: '2018'
   _6l7MQgAAAAJ:5ugPr518TE4C:
-    citations: 45
+    citations: 46
     title: 'YOLOPose: Transformer-based multi-object 6D pose estimation using keypoint regression'
     year: '2022'
   _6l7MQgAAAAJ:9yKSN-GCB0IC:
@@ -78,7 +78,7 @@ papers:
     title: 'ConvPoseCNN2: Prediction and Refinement of Dense 6D Object Poses'
     year: '2022'
   _6l7MQgAAAAJ:isC4tDSrTZIC:
-    citations: 28
+    citations: 29
     title: 'SynPick: A dataset for dynamic bin picking scene understanding'
     year: '2021'
   _6l7MQgAAAAJ:kuK5TVdYjLIC:
