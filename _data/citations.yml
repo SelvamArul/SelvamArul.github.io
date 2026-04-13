@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-04-08'
+  last_updated: '2026-04-13'
 papers:
   _6l7MQgAAAAJ:-f6ydRqryjwC:
     citations: 4
@@ -70,7 +70,7 @@ papers:
     title: Iterative 3D Deformable Registration from Single-view RGB Images using Differentiable Rendering.
     year: '2022'
   _6l7MQgAAAAJ:eq2jaN3J8jMC:
-    citations: 1
+    citations: 2
     title: Learning Implicit Probability Distribution Functions for Symmetric Orientation Estimation from RGB Images Without Pose Labels
     year: '2022'
   _6l7MQgAAAAJ:gsN89kCJA0AC:
