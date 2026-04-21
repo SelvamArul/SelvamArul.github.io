@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-direct-linear-transform-the-swiss-army-knife-of-computer-vision",
+        },{id: "post-a-deep-dive-into-tensorrt-amp-triton-for-production-inference",
+        
+          title: "A Deep Dive into TensorRT &amp; Triton for Production Inference",
+        
+        description: "NVIDIA&#39;S AI Model optimization &amp; Training: A Deep Dive into TensorRT &amp; Triton for Production Inference",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/TensorRT-Trion/";
+          
+        },
+      },{id: "post-direct-linear-transform-the-swiss-army-knife-of-computer-vision",
         
           title: "Direct Linear Transform: The Swiss Army Knife of Computer Vision",
         

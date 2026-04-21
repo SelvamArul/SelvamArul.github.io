@@ -1,4 +1,141 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://selvamarul.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://selvamarul.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2026-02-28T21:08:29+00:00</updated><id>https://selvamarul.github.io//feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">Rust vs. Go error handling</title><link href="https://selvamarul.github.io//blog/2026/Rust-Error/" rel="alternate" type="text/html" title="Rust vs. Go error handling"/><published>2026-02-13T15:09:00+00:00</published><updated>2026-02-13T15:09:00+00:00</updated><id>https://selvamarul.github.io//blog/2026/Rust-Error</id><content type="html" xml:base="https://selvamarul.github.io//blog/2026/Rust-Error/"><![CDATA[<p>Lately, I’ve been programming a lot in Go and Rust. During my Ph.D. years, most of my research code—particularly machine learning (ML) code—was written in Python, and C++ was the primary language I used for programming with ROS. C was the first programming language I learned back in high school, and C++ followed soon after. I would even say my algorithmic thinking is shaped by C++ more than any other language. However, Go and Rust feel modern—although many experienced programmers would say the concepts are nothing new and have existed in other languages for decades. That’s a discussion for another day.</p> <p>Now, back to Go and Rust. I like the simplicity of Go. Features like built-in concurrency and garbage collection make programming in Go a pleasure. I feel as productive as I used to when writing vectorized NumPy code in Python. However, I can’t help but admire how much Rust keeps me from writing bad code. This philosophy is built into the core of the language and shows in every aspect of the language design. This week I noticed a subtle difference between error handling in Go and Rust that illustrates this.</p> <p>Let’s consider a simple function that reads file content. The following function uses idiomatic Go <a href="https://gobyexample.com/multiple-return-values">multiple return values</a> to return both a value and an error. In fact, the <code class="language-plaintext highlighter-rouge">os.Open</code> library function on line 8 also returns two values: a file handler and an error. Anyone even slightly familiar with Go should have seen the error handling pattern if <code class="language-plaintext highlighter-rouge">err != nil</code> used on line 13 many times. It’s idiomatic to handle errors immediately after a function call.”</p> <figure class="highlight"><pre><code class="language-go" data-lang="go"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://selvamarul.github.io//feed.xml" rel="self" type="application/atom+xml"/><link href="https://selvamarul.github.io//" rel="alternate" type="text/html" hreflang="en"/><updated>2026-04-21T17:16:14+00:00</updated><id>https://selvamarul.github.io//feed.xml</id><title type="html">blank</title><subtitle></subtitle><entry><title type="html">A Deep Dive into TensorRT &amp;amp; Triton for Production Inference</title><link href="https://selvamarul.github.io//blog/2026/TensorRT-Trion/" rel="alternate" type="text/html" title="A Deep Dive into TensorRT &amp;amp; Triton for Production Inference"/><published>2026-04-20T15:09:00+00:00</published><updated>2026-04-20T15:09:00+00:00</updated><id>https://selvamarul.github.io//blog/2026/TensorRT-Trion</id><content type="html" xml:base="https://selvamarul.github.io//blog/2026/TensorRT-Trion/"><![CDATA[<h3 id="introduction">Introduction</h3> <p>So you’ve trained your model. Validation loss looks great, accuracy is solid, and you’re feeling good. Then someone asks: “Can we deploy this to production?”</p> <p>And suddenly, latency matters. Throughput matters. GPU bills matter.</p> <p>This is where TensorRT and Triton Inference Server become essential. Together, they form NVIDIA’s complementary toolkit for moving your trained model from a local prototype to a production ready system capable of handling thousands of requests per second. In this post, we will take a closer look at how that process works.</p> <h3 id="the-big-picture-train--optimize--serve">The Big Picture: Train → Optimize → Serve</h3> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[PyTorch / TensorFlow]     [TensorRT]             [Triton]
+  Train a model    →       Optimize it    →   Serve it at scale
+ (Accuracy focus)         (Speed focus)       (Production focus)
+</code></pre></div></div> <p>Step 1: Export the trained model (The Starting Point) Most of us are familiar with training model using frameworks like <a href="https://pytorch.org">PyTorch</a> or <a href="tensorflow.org">TensorFlow</a>, leveraging CUDA and cuDNN under the hood for GPU acceleration. Once training is done, we export our model — typically to <a href="https://onnx.ai">ONNX</a> format, which acts as a universal bridge between deep learning frameworks.</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1"># Export your trained PyTorch model to ONNX
+</span><span class="n">dummy_input</span> <span class="o">=</span> <span class="n">torch</span><span class="p">.</span><span class="nf">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">).</span><span class="nf">cuda</span><span class="p">()</span>
+
+<span class="n">torch</span><span class="p">.</span><span class="n">onnx</span><span class="p">.</span><span class="nf">export</span><span class="p">(</span>
+    <span class="n">model</span><span class="p">,</span>                    <span class="c1"># Your trained model
+</span>    <span class="n">dummy_input</span><span class="p">,</span>              <span class="c1"># Example input for tracing
+</span>    <span class="sh">"</span><span class="s">model.onnx</span><span class="sh">"</span><span class="p">,</span>             <span class="c1"># Output file
+</span>    <span class="n">opset_version</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span>         <span class="c1"># ONNX opset version
+</span>    <span class="n">input_names</span><span class="o">=</span><span class="p">[</span><span class="sh">"</span><span class="s">input</span><span class="sh">"</span><span class="p">],</span>
+    <span class="n">output_names</span><span class="o">=</span><span class="p">[</span><span class="sh">"</span><span class="s">output</span><span class="sh">"</span><span class="p">],</span>
+    <span class="n">dynamic_axes</span><span class="o">=</span><span class="p">{</span>            <span class="c1"># Allow variable batch sizes
+</span>        <span class="sh">"</span><span class="s">input</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="sh">"</span><span class="s">batch_size</span><span class="sh">"</span><span class="p">},</span>
+        <span class="sh">"</span><span class="s">output</span><span class="sh">"</span><span class="p">:</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="sh">"</span><span class="s">batch_size</span><span class="sh">"</span><span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></div> <p>Why ONNX? It decouples your model from the training framework. TensorRT can then ingest it regardless of whether you trained in PyTorch, TensorFlow, or JAX.</p> <p>That ONNX file is your handoff point. Now the real fun begins.</p> <h3 id="step-2-optimization-with-tensorrt">Step 2: Optimization with TensorRT</h3> <p>At its core, TensorRT takes your ONNX model and rebuilds it as a highly optimized inference engine specifically tuned for your GPU. Here’s what it actually does under the hood:</p> <p><strong>Layer Fusion</strong></p> <p>Our model, as exported, runs operations sequentially. A typical ResNet block might look like:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Conv2D → BatchNorm → ReLU →  Conv2D →  BatchNorm →  ReLU
+  ↓          ↓         ↓       ↓          ↓         ↓
+kernel1   kernel2   kernel3  kernel4   kernel5   kernel6
+</code></pre></div></div> <p>Each operation is a separate GPU kernel call. Thus, separate memory reads, writes, and kernel launch overhead. TensorRT fuses these into fewer, larger kernels:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Conv2D + BatchNorm + ReLU] → [Conv2D + BatchNorm + ReLU]
+          ↓                               ↓
+        kernel1                        kernel2
+</code></pre></div></div> <p>Fewer kernel launches, fewer memory round-trips, significantly faster execution.</p> <p><strong>Precision Calibration (INT8 &amp; FP16)</strong></p> <p>By default, models run in FP32. TensorRT drops to FP16 or even INT8 with minimal accuracy loss:</p> <ul> <li>FP16: Usually a free ~2x speedup with negligible accuracy impact</li> <li>INT8: Up to ~4x speedup, requires a calibration dataset to determine optimal scaling factors</li> </ul> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="nf">create_builder_config</span><span class="p">()</span>
+
+<span class="c1"># FP16 - easy win, almost always safe
+</span><span class="n">config</span><span class="p">.</span><span class="nf">set_flag</span><span class="p">(</span><span class="n">trt</span><span class="p">.</span><span class="n">BuilderFlag</span><span class="p">.</span><span class="n">FP16</span><span class="p">)</span>
+
+<span class="c1"># INT8 - needs calibration
+</span><span class="n">config</span><span class="p">.</span><span class="nf">set_flag</span><span class="p">(</span><span class="n">trt</span><span class="p">.</span><span class="n">BuilderFlag</span><span class="p">.</span><span class="n">INT8</span><span class="p">)</span>
+<span class="n">config</span><span class="p">.</span><span class="n">int8_calibrator</span> <span class="o">=</span> <span class="nc">MyCalibrator</span><span class="p">(</span><span class="n">calibration_dataset</span><span class="p">)</span>
+</code></pre></div></div> <p>TensorRT’s INT8 calibration works by running a small representative dataset through the model and computing the optimal quantization ranges per layer, automatically. We don’t need to manually quantize anything.</p> <p><strong>Kernel Auto-Tuning</strong></p> <p>For any given operation, there are often dozens of possible CUDA kernel <a href="https://docs.pytorch.org/tutorials/recipes/torch_compile_user_defined_triton_kernel_tutorial.html">implementations</a>. TensorRT benchmarks them all at engine build time and picks the fastest one for your specific GPU and input shape. This is why building a TensorRT engine takes a few minutes. It’s doing real benchmarking work upfront so inference is as fast as possible at runtime.</p> <p><strong>Memory Planning</strong> TensorRT pre-analyzes the entire computation graph and plans optimal memory reuse across layers. Tensors that are no longer needed get their memory reclaimed immediately for subsequent layers. This reduces peak memory usage significantly, which is important when we are running multiple models on the same GPU.</p> <h3 id="building-the-engine">Building the Engine</h3> <p>Putting it all together:</p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">tensorrt</span> <span class="k">as</span> <span class="n">trt</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">trt</span><span class="p">.</span><span class="nc">Logger</span><span class="p">(</span><span class="n">trt</span><span class="p">.</span><span class="n">Logger</span><span class="p">.</span><span class="n">WARNING</span><span class="p">)</span>
+<span class="n">builder</span> <span class="o">=</span> <span class="n">trt</span><span class="p">.</span><span class="nc">Builder</span><span class="p">(</span><span class="n">logger</span><span class="p">)</span>
+<span class="n">network</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="nf">create_network</span><span class="p">(</span>
+    <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="nf">int</span><span class="p">(</span><span class="n">trt</span><span class="p">.</span><span class="n">NetworkDefinitionCreationFlag</span><span class="p">.</span><span class="n">EXPLICIT_BATCH</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">trt</span><span class="p">.</span><span class="nc">OnnxParser</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">logger</span><span class="p">)</span>
+
+<span class="c1"># Parse ONNX model
+</span><span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">model.onnx</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">rb</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">parser</span><span class="p">.</span><span class="nf">parse</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="nf">read</span><span class="p">())</span>
+
+<span class="c1"># Configure optimization
+</span><span class="n">config</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="nf">create_builder_config</span><span class="p">()</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">set_memory_pool_limit</span><span class="p">(</span><span class="n">trt</span><span class="p">.</span><span class="n">MemoryPoolType</span><span class="p">.</span><span class="n">WORKSPACE</span><span class="p">,</span> <span class="mi">4</span> <span class="o">&lt;&lt;</span> <span class="mi">30</span><span class="p">)</span>  <span class="c1"># 4GB
+</span><span class="n">config</span><span class="p">.</span><span class="nf">set_flag</span><span class="p">(</span><span class="n">trt</span><span class="p">.</span><span class="n">BuilderFlag</span><span class="p">.</span><span class="n">FP16</span><span class="p">)</span>
+
+<span class="c1"># Set dynamic shape profile
+</span><span class="n">profile</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="nf">create_optimization_profile</span><span class="p">()</span>
+<span class="n">profile</span><span class="p">.</span><span class="nf">set_shape</span><span class="p">(</span>
+    <span class="sh">"</span><span class="s">input</span><span class="sh">"</span><span class="p">,</span>
+    <span class="nb">min</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span>     <span class="c1"># Minimum batch size
+</span>    <span class="n">opt</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span>    <span class="c1"># Optimal batch size
+</span>    <span class="nb">max</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>     <span class="c1"># Maximum batch size
+</span><span class="p">)</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">add_optimization_profile</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+
+<span class="c1"># Build &amp; save engine (this takes a few minutes)
+</span><span class="n">serialized_engine</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="nf">build_serialized_network</span><span class="p">(</span><span class="n">network</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+<span class="k">with</span> <span class="nf">open</span><span class="p">(</span><span class="sh">"</span><span class="s">model.plan</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">wb</span><span class="sh">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">f</span><span class="p">.</span><span class="nf">write</span><span class="p">(</span><span class="n">serialized_engine</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s"> TensorRT engine built and saved!</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div> <p>⚠️ Important: TensorRT engines are GPU-specific. An engine built on an A100 won’t run on a T4. Always engine be built on the same GPU class used in production.</p> <h3 id="step-3-serving-with-triton-the-production-layer">Step 3: Serving with Triton (The Production Layer)</h3> <p>WE now have a blazing-fast TensorRT engine. But a <code class="language-plaintext highlighter-rouge">.plan</code> file sitting on disk doesn’t serve HTTP requests, handle concurrent users, or scale across multiple GPUs. That’s Triton’s job.</p> <p><strong>Setting Up the Model Repository</strong> Triton uses a simple directory structure:</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>model_repository/
+└── resnet50/
+├── config.pbtxt ← Model configuration
+└── 1/
+└── model.plan ← TensorRT engine
+</code></pre></div></div> <p><strong>Configuring Triton (config.pbtxt)</strong></p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>name: "resnet50"
+backend: "tensorrt"
+max_batch_size: 64
+
+input [
+  {
+    name: "input"
+    data_type: TYPE_FP16
+    dims: [3, 224, 224]
+  }
+]
+
+output [
+  {
+    name: "output"
+    data_type: TYPE_FP16
+    dims: [1000]
+  }
+]
+
+dynamic_batching {
+  preferred_batch_size: [8, 16, 32, 64]
+  max_queue_delay_microseconds: 500
+}
+
+instance_group [
+  {
+    count: 2          # Run 2 model instances concurrently
+    kind: KIND_GPU
+    gpus: [0]         # On GPU 0
+  }
+]
+</code></pre></div></div> <p><strong>Throughput multipliexing with Dynamic Batching</strong></p> <p>This is one of Triton’s killer features. Instead of processing requests one by one (wasting GPU parallelism) or waiting for a fixed batch (adding latency), Triton dynamically groups incoming requests into batches at runtime.</p> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>t=0ms    Request A arrives  → queue: [A]
+t=0.2ms  Request B arrives  → queue: [A, B]
+t=0.3ms  Request C arrives  → queue: [A, B, C]
+t=0.5ms  Timer expires      → Batch [A, B, C] → GPU 🚀
+</code></pre></div></div> <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>t=0.6ms  Requests D,E,F,G arrive → preferred size (4) hit!
+         → Batch [D, E, F, G] → GPU immediately 🚀
+</code></pre></div></div> <p><strong>Launching Triton</strong></p> <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">--gpus</span> all <span class="nt">--rm</span> <span class="se">\</span>
+  <span class="nt">-p</span> 8000:8000 <span class="se">\ </span><span class="c"># HTTP/REST</span>
+  <span class="nt">-p</span> 8001:8001 <span class="se">\ </span><span class="c"># gRPC (lower overhead, preferred for high-throughput)</span>
+  <span class="nt">-p</span> 8002:8002 <span class="se">\ </span><span class="c"># Prometheus metrics</span>
+  <span class="nt">-v</span> <span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span>/model_repository:/models <span class="se">\</span>
+  nvcr.io/nvidia/tritonserver:24.01-py3 <span class="se">\</span>
+  tritonserver <span class="nt">--model-repository</span><span class="o">=</span>/models
+</code></pre></div></div> <p><strong>Sending Inference Requests</strong></p> <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">tritonclient.http</span> <span class="k">as</span> <span class="n">httpclient</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">httpclient</span><span class="p">.</span><span class="nc">InferenceServerClient</span><span class="p">(</span><span class="sh">"</span><span class="s">localhost:8000</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="c1"># Check server health
+</span><span class="k">assert</span> <span class="n">client</span><span class="p">.</span><span class="nf">is_server_live</span><span class="p">(),</span> <span class="sh">"</span><span class="s">Triton server is not running!</span><span class="sh">"</span>
+
+<span class="c1"># Prepare input
+</span><span class="n">input_data</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">random</span><span class="p">.</span><span class="nf">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">).</span><span class="nf">astype</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">float16</span><span class="p">)</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">httpclient</span><span class="p">.</span><span class="nc">InferInput</span><span class="p">(</span><span class="sh">"</span><span class="s">input</span><span class="sh">"</span><span class="p">,</span> <span class="n">input_data</span><span class="p">.</span><span class="n">shape</span><span class="p">,</span> <span class="sh">"</span><span class="s">FP16</span><span class="sh">"</span><span class="p">)]</span>
+<span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nf">set_data_from_numpy</span><span class="p">(</span><span class="n">input_data</span><span class="p">)</span>
+
+<span class="n">outputs</span> <span class="o">=</span> <span class="p">[</span><span class="n">httpclient</span><span class="p">.</span><span class="nc">InferRequestedOutput</span><span class="p">(</span><span class="sh">"</span><span class="s">output</span><span class="sh">"</span><span class="p">)]</span>
+
+<span class="c1"># Run inference
+</span><span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">infer</span><span class="p">(</span><span class="sh">"</span><span class="s">resnet50</span><span class="sh">"</span><span class="p">,</span> <span class="n">inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">outputs</span><span class="p">)</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">as_numpy</span><span class="p">(</span><span class="sh">"</span><span class="s">output</span><span class="sh">"</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sa">f</span><span class="sh">"</span><span class="s">Output shape: </span><span class="si">{</span><span class="n">predictions</span><span class="p">.</span><span class="n">shape</span><span class="si">}</span><span class="sh">"</span><span class="p">)</span>  <span class="c1"># (1, 1000)
+</span></code></pre></div></div> <p><strong>Key Takeaways</strong></p> <p>If you take nothing else from this post, remember these three things:</p> <ol> <li> <p>TensorRT is GPU-specific — always build your engine on the same GPU class you’ll deploy on. It’s not portable, but that’s exactly why it’s so fast.</p> </li> <li> <p>FP16 is almost always a free win. Enable it by default. Only reach for INT8 if you need that extra push and are willing to validate accuracy carefully.</p> </li> <li> <p>Triton’s dynamic batching is a throughput multiplier — tune <code class="language-plaintext highlighter-rouge">preferred_batch_size</code> and <code class="language-plaintext highlighter-rouge">max_queue_delay_microseconds</code> based on your latency SLA and expected traffic patterns.</p> </li> </ol>]]></content><author><name></name></author><category term="AI-Inference"/><category term="AI-Inference"/><summary type="html"><![CDATA[NVIDIA'S AI Model optimization & Training: A Deep Dive into TensorRT & Triton for Production Inference]]></summary></entry><entry><title type="html">Rust vs. Go error handling</title><link href="https://selvamarul.github.io//blog/2026/Rust-Error/" rel="alternate" type="text/html" title="Rust vs. Go error handling"/><published>2026-02-13T15:09:00+00:00</published><updated>2026-02-13T15:09:00+00:00</updated><id>https://selvamarul.github.io//blog/2026/Rust-Error</id><content type="html" xml:base="https://selvamarul.github.io//blog/2026/Rust-Error/"><![CDATA[<p>Lately, I’ve been programming a lot in Go and Rust. During my Ph.D. years, most of my research code—particularly machine learning (ML) code—was written in Python, and C++ was the primary language I used for programming with ROS. C was the first programming language I learned back in high school, and C++ followed soon after. I would even say my algorithmic thinking is shaped by C++ more than any other language. However, Go and Rust feel modern—although many experienced programmers would say the concepts are nothing new and have existed in other languages for decades. That’s a discussion for another day.</p> <p>Now, back to Go and Rust. I like the simplicity of Go. Features like built-in concurrency and garbage collection make programming in Go a pleasure. I feel as productive as I used to when writing vectorized NumPy code in Python. However, I can’t help but admire how much Rust keeps me from writing bad code. This philosophy is built into the core of the language and shows in every aspect of the language design. This week I noticed a subtle difference between error handling in Go and Rust that illustrates this.</p> <p>Let’s consider a simple function that reads file content. The following function uses idiomatic Go <a href="https://gobyexample.com/multiple-return-values">multiple return values</a> to return both a value and an error. In fact, the <code class="language-plaintext highlighter-rouge">os.Open</code> library function on line 8 also returns two values: a file handler and an error. Anyone even slightly familiar with Go should have seen the error handling pattern if <code class="language-plaintext highlighter-rouge">err != nil</code> used on line 13 many times. It’s idiomatic to handle errors immediately after a function call.”</p> <figure class="highlight"><pre><code class="language-go" data-lang="go"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
 3
 4
@@ -234,4 +371,4 @@
             <span class="n">best_inliers</span> <span class="o">=</span> <span class="n">inliers</span>
 
     <span class="k">return</span> <span class="n">best_F</span><span class="p">,</span> <span class="n">best_inliers</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="computer-vision"/><category term="3DV"/><summary type="html"><![CDATA[Understanding the mathematical foundation behind fundamental matrices, homographies, and camera calibration]]></summary></entry></feed>
+</code></pre></div></div>]]></content><author><name></name></author><category term="computer-vision"/><category term="3D-Vision"/><summary type="html"><![CDATA[Understanding the mathematical foundation behind fundamental matrices, homographies, and camera calibration]]></summary></entry></feed>
