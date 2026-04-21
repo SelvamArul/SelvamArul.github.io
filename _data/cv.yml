@@ -4,7 +4,7 @@ cv:
   email: doktorandarul@gmail.com
   location: Munich, Germany
   image: ""
-  summary: "Research Scientist in Edge Computing with expertise in developing and deploying AI models for advanced scene understanding applications. Specialized in object pose estimation algorithms and contributed perception modules for award-winning research robots. Proven track record in the complete AI development lifecycle, from model training to deployment across both cloud and edge computing environments. Combines deep technical knowledge in computer vision and machine learning with practical experience in robotics applications and cloud-based AI deployment strategies."
+  summary: "Research Scientist in Edge Computing with expertise in developing and deploying AI models for robotics and edge applications. Specialized in object detection, 6D pose estimation, AI inference, and low-latency real-time systems. Contributed perception modules to award-winning research robots and possess a proven track record in the complete AI lifecycle—from cloud-based training to edge deployment. Combines deep technical knowledge in computer vision and machine learning with extensive practical experience in robotics and edge AI."
 
   social_networks:
     - network: GitHub
@@ -114,6 +114,9 @@ cv:
       - name: Edge & Cloud
         icon: fa-solid fa-cloud
         keywords: "Kubernetes, Docker, Confidential Containers"
+      - name: AI Inference 
+        icon: fa-solid fa-cloud
+        keywords: "TensorRT, Nvidia Triton Server, vLLM"
 
     Languages:
       - name: English
