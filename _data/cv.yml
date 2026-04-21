@@ -107,16 +107,19 @@ cv:
     Skills:
       - name: Computer Vision
         icon: fa-solid fa-eye
-        keywords: "Object Detection & Pose Estimation, Semantic Segmentation, Deep learning, large language models (LLMs) & world models (WMs)"
+        keywords: "Object Detection & Pose Estimation, Semantic Segmentation, Deep learning, large language models (LLMs) & vision-language-action models (VLAs)"
       - name: Robotics
         icon: fa-solid fa-robot
         keywords: "Navigation, RGB-D Perception, SLAM"
       - name: Edge & Cloud
         icon: fa-solid fa-cloud
         keywords: "Kubernetes, Docker, Confidential Containers"
-      - name: AI Inference 
-        icon: fa-solid fa-cloud
+      - name: AI Inference
+        icon: fa-solid fa-rocket
         keywords: "TensorRT, ONNX Runtime, Nvidia Triton Server, vLLM"
+      - name: Real-time Linux
+        icon: fa-brands fa-linux
+        keywords: "Preempt_RT Linux"
 
     Languages:
       - name: English
