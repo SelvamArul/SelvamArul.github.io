@@ -5,7 +5,7 @@ date: 2026-02-13 15:09:00
 description: Rust vs. Go error handling
 tags: rust go
 categories: programming-laguages
-featured: true
+featured: false
 ---
 
 Lately, I've been programming a lot in Go and Rust. During my Ph.D. years, most of my research code—particularly machine learning (ML) code—was written in Python, and C++ was the primary language I used for programming with ROS. C was the first programming language I learned back in high school, and C++ followed soon after. I would even say my algorithmic thinking is shaped by C++ more than any other language. However, Go and Rust feel modern—although many experienced programmers would say the concepts are nothing new and have existed in other languages for decades. That's a discussion for another day.
