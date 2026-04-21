@@ -116,7 +116,7 @@ cv:
         keywords: "Kubernetes, Docker, Confidential Containers"
       - name: AI Inference 
         icon: fa-solid fa-cloud
-        keywords: "TensorRT, Nvidia Triton Server, vLLM"
+        keywords: "TensorRT, ONNX Runtime, Nvidia Triton Server, vLLM"
 
     Languages:
       - name: English
