@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-a-deep-dive-into-tensorrt-amp-triton-for-production-inference",
+        },{id: "post-local-coding-assistant-with-ollama-and-vs-code-continue-plugin",
+        
+          title: "Local coding assistant with Ollama and VS Code Continue plugin",
+        
+        description: "Setting up  Ollama and VS Code Continue plugin for local coding assistance",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/ollama-continue/";
+          
+        },
+      },{id: "post-a-deep-dive-into-tensorrt-amp-triton-for-production-inference",
         
           title: "A Deep Dive into TensorRT &amp; Triton for Production Inference",
         
