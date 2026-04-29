@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-04-20'
+  last_updated: '2026-04-29'
 papers:
   _6l7MQgAAAAJ:-f6ydRqryjwC:
     citations: 4
@@ -38,7 +38,7 @@ papers:
     title: Refining 6D object pose predictions using abstract render-and-compare
     year: '2019'
   _6l7MQgAAAAJ:UHK10RUVsp4C:
-    citations: 8
+    citations: 9
     title: 'ConvPoseCNN2: Prediction and Refinement of Dense 6D Object Poses'
     year: '2022'
   _6l7MQgAAAAJ:URolC5Kub84C:
