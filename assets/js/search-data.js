@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-local-coding-assistant-with-ollama-and-vs-code-continue-plugin",
+        },{id: "post-π0-5-vla-model",
+        
+          title: "π0.5 VLA Model",
+        
+        description: "My notes on Pi VLA models from Physical Intelligence",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/Pi-VLA/";
+          
+        },
+      },{id: "post-local-coding-assistant-with-ollama-and-vs-code-continue-plugin",
         
           title: "Local coding assistant with Ollama and VS Code Continue plugin",
         
