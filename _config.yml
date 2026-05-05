@@ -189,6 +189,7 @@ plugins:
   - jekyll-3rd-party-libraries
   - jekyll-archives-v2
   - jekyll-cache-bust
+  - jekyll-diagrams
   - jekyll-email-protect
   - jekyll-feed
   - jekyll-get-json
@@ -245,7 +246,7 @@ jekyll-archives:
   books:
     enabled: [year, tags, categories] # enables year, tag and category archives (remove if you need to disable one of them).
 
-display_tags: ["AI-Inference", "3D-Vision", "go", "rust"] # these tags will be displayed on the front page of your blog
+display_tags: ["Robotics", "VLA", "AI-Inference", "3D-Vision", "go", "rust"] # these tags will be displayed on the front page of your blog
 # display_categories: ["external-services"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------

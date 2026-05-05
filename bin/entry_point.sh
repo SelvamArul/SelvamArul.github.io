@@ -19,8 +19,19 @@ manage_gemfile_lock() {
     fi
 }
 
+ensure_bundle() {
+    if bundle check &> /dev/null; then
+        echo "Bundle is already installed"
+        return
+    fi
+
+    echo "Missing gems detected, running bundle install"
+    bundle install
+}
+
 start_jekyll() {
     manage_gemfile_lock
+    ensure_bundle
     bundle exec jekyll serve --watch --port=8080 --host=0.0.0.0 --livereload --verbose --trace --force_polling &
 }
 
