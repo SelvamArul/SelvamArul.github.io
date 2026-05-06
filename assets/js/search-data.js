@@ -37,9 +37,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-π0-5-vla",
+        },{id: "post-π-vla",
         
-          title: "π0.5 VLA",
+          title: "π₀.₅ VLA",
         
         description: "My notes on Pi VLA models from Physical Intelligence",
         section: "Posts",
