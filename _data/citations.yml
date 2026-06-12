@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-06-03'
+  last_updated: '2026-06-12'
 papers:
   _6l7MQgAAAAJ:-f6ydRqryjwC:
     citations: 4
@@ -18,7 +18,7 @@ papers:
     title: 'YOLOPose: Transformer-based multi-object 6D pose estimation using keypoint regression'
     year: '2022'
   _6l7MQgAAAAJ:9yKSN-GCB0IC:
-    citations: 213
+    citations: 214
     title: RGB-D object detection and semantic segmentation for autonomous manipulation in clutter
     year: '2018'
   _6l7MQgAAAAJ:BqipwSGYUEgC:
@@ -70,7 +70,7 @@ papers:
     title: Iterative 3D Deformable Registration from Single-view RGB Images using Differentiable Rendering.
     year: '2022'
   _6l7MQgAAAAJ:eq2jaN3J8jMC:
-    citations: 4
+    citations: 3
     title: Learning Implicit Probability Distribution Functions for Symmetric Orientation Estimation from RGB Images Without Pose Labels
     year: '2022'
   _6l7MQgAAAAJ:gsN89kCJA0AC:
@@ -102,7 +102,7 @@ papers:
     title: 'Nimbro Picking: Versatile part handling for warehouse automation'
     year: '2017'
   _6l7MQgAAAAJ:u5HHmVD_uO8C:
-    citations: 37
+    citations: 38
     title: Supervised Autonomy for Exploration and Mobile Manipulation in Rough Terrain with a Centaur-like Robot
     year: '2016'
   _6l7MQgAAAAJ:uLbwQdceFCQC:
