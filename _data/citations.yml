@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-07-06'
+  last_updated: '2026-07-24'
 papers:
   _6l7MQgAAAAJ:-f6ydRqryjwC:
     citations: 4
@@ -22,7 +22,7 @@ papers:
     title: RGB-D object detection and semantic segmentation for autonomous manipulation in clutter
     year: '2018'
   _6l7MQgAAAAJ:BqipwSGYUEgC:
-    citations: 48
+    citations: 49
     title: 'T6D-Direct: Transformers for multi-object 6D pose direct regression'
     year: '2021'
   _6l7MQgAAAAJ:IjCSPb-OGe4C:
