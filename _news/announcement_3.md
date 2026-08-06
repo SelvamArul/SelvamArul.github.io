@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Starting a new position at Siemens AG as a research scientist in Edge Computing.
+Starting a new position at Siemens AG as a Research Scientist in Edge Computing.

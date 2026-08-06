@@ -24,5 +24,5 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a Research Scientist in Edge Computing at Siemens AG. Previously, I earned my Ph.D. at the University of Bonn within the [Autonomous Intelligent Systems group](http://ais.uni-bonn.de/), led by [Prof. Dr. Sven Behnke](http://ais.uni-bonn.de/behnke/). I also hold a Master’s in Computer Science from the same institution.
+I work as Robotic Perception Expert at Neura Robotics. Before joining Neura, I was a Research Scientist in Edge Computing at Siemens AG. Previously, I earned my Ph.D. at the University of Bonn within the [Autonomous Intelligent Systems group](http://ais.uni-bonn.de/), led by [Prof. Dr. Sven Behnke](http://ais.uni-bonn.de/behnke/). I also hold a Master’s in Computer Science from the same institution.
 As a member of [Team NimbRo](https://www.ais.uni-bonn.de/nimbro/MBZIRC/) and [Team NimbRo Picking](https://www.ais.uni-bonn.de/nimbro/Picking/), I have contributed to developing award-winning robots that achieved success in several international competitions. Explore my list of [publications](http://selvamarul.github.io/publications/), [robotics competition history](https://selvamarul.github.io/projects/#robotics/), or [CV](http://selvamarul.github.io/cv/) for more details.

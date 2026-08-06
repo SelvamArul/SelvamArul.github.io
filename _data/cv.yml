@@ -1,16 +1,10 @@
 cv:
   name: Arul Selvam Periyasamy
-  label: Research Scientist
-  email: doktorandarul@gmail.com
+  label: Robotic Perception Expert
+  email: arulselvam@proton.me
   location: Munich, Germany
   image: ""
-  summary: "Research Scientist in Edge Computing with expertise in developing and deploying AI models for robotics and edge applications. Specialized in object detection, 6D pose estimation, AI inference, and low-latency real-time systems. Contributed perception modules to award-winning research robots and possess a proven track record in the complete AI lifecycle—from cloud-based training to edge deployment. Combines deep technical knowledge in computer vision and machine learning with extensive practical experience in robotics and edge AI."
-
-  social_networks:
-    - network: GitHub
-      username: SelvamArul
-    - network: LinkedIn
-      username: example
+  summary: "Robotic Perception Expert with expertise in developing and deploying AI models for robotics and edge applications. Specialized in object detection, 6D pose estimation, AI inference, and low-latency real-time systems. Contributed perception modules to award-winning research robots and possess a proven track record in the complete AI lifecycle—from cloud-based training to edge deployment. Combines deep technical knowledge in computer vision and machine learning with extensive practical experience in robotics and edge AI."
 
   address:
     city: Eching
@@ -37,18 +31,25 @@ cv:
         end_date: 2018
 
     Experience:
+      - company: Neura Robotics
+        position: Robotic Perception Expert
+        location: Metzingen
+        start_date: Jul, 2026
+        end_date: current
+        summary: Research Scientist in Edge and Confidential Computing
+
       - company: Siemens AG
         position: Research Scientist
         location: Garching bei München
-        start_date: 2026
-        end_date: current
+        start_date: Feb, 2026
+        end_date: Jun, 2026
         summary: Research Scientist in Edge and Confidential Computing
 
       - company: Siemens AG
         position: Postdoctoral Researcher
         location: Garching bei München
-        start_date: 2024
-        end_date: 2026
+        start_date: Feb, 2024
+        end_date: Feb, 2026
 
     Awards:
       - title: 2nd Place in Grand Challenge
