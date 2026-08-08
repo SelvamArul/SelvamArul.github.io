@@ -645,3 +645,16 @@ jsonresume:
   - languages
   - interests
   - references
+
+
+# -----------------------------------------------------------------------------
+# ImageMagick Settings
+# -----------------------------------------------------------------------------
+jekyll-imagemagick:
+  enabled: true
+  input_directories: ["assets/img", "assets/data"] # <--- Adds data folder support
+  input_formats: [".jpg", ".jpeg", ".png", ".tiff"]
+  output_directory: "assets/data" 
+  output_formats: [".webp"]
+  widths: [400, 800, 1400]
+  graceful_fail: true
