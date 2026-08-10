@@ -1,8 +1,8 @@
 metadata:
-  last_updated: '2026-07-24'
+  last_updated: '2026-08-10'
 papers:
   _6l7MQgAAAAJ:-f6ydRqryjwC:
-    citations: 4
+    citations: 5
     title: Team NimbRo's UGV Solution for Autonomous Wall Building and Fire Fighting at MBZIRC 2020
     year: '2021'
   _6l7MQgAAAAJ:1yQoGdGgb4wC:
@@ -10,15 +10,15 @@ papers:
     title: Robust 6D Object Pose Estimation in Cluttered Scenes using Semantic Segmentation and Pose Regression Networks
     year: '2018'
   _6l7MQgAAAAJ:2osOgNQ5qMEC:
-    citations: 116
+    citations: 120
     title: Fast object learning and dual-arm coordination for cluttered stowing, picking, and packing
     year: '2018'
   _6l7MQgAAAAJ:5ugPr518TE4C:
-    citations: 48
+    citations: 50
     title: 'YOLOPose: Transformer-based multi-object 6D pose estimation using keypoint regression'
     year: '2022'
   _6l7MQgAAAAJ:9yKSN-GCB0IC:
-    citations: 214
+    citations: 213
     title: RGB-D object detection and semantic segmentation for autonomous manipulation in clutter
     year: '2018'
   _6l7MQgAAAAJ:BqipwSGYUEgC:
@@ -26,7 +26,7 @@ papers:
     title: 'T6D-Direct: Transformers for multi-object 6D pose direct regression'
     year: '2021'
   _6l7MQgAAAAJ:IjCSPb-OGe4C:
-    citations: 18
+    citations: 22
     title: Autonomous dual-arm manipulation of familiar objects
     year: '2018'
   _6l7MQgAAAAJ:KUbvn5osdkgC:
@@ -42,11 +42,11 @@ papers:
     title: 'ConvPoseCNN2: Prediction and Refinement of Dense 6D Object Poses'
     year: '2022'
   _6l7MQgAAAAJ:URolC5Kub84C:
-    citations: 35
+    citations: 36
     title: 'YOLOPose V2: Understanding and improving transformer-based 6D pose estimation'
     year: '2023'
   _6l7MQgAAAAJ:UeHWp8X0CEIC:
-    citations: 21
+    citations: 22
     title: 'Team NimbRo at MBZIRC 2017: Autonomous valve stem turning using a wrench'
     year: '2019'
   _6l7MQgAAAAJ:W7OEmFMy1HYC:
@@ -54,7 +54,7 @@ papers:
     title: Multi-class RGB-D Object Detection and Semantic Segmentation for Autonomous Manipulation in Clutter
     year: Unknown Year
   _6l7MQgAAAAJ:Wp0gIr-vW9MC:
-    citations: 18
+    citations: 19
     title: Autonomous wall building with a UGV-UAV team at MBZIRC 2020
     year: '2020'
   _6l7MQgAAAAJ:Y0pCki6q_DkC:
@@ -71,7 +71,7 @@ papers:
     year: '2022'
   _6l7MQgAAAAJ:eq2jaN3J8jMC:
     citations: 3
-    title: Learning Implicit Probability Distribution Functions for Symmetric Orientation Estimation from RGB Images Without Pose Labels
+    title: Learning implicit probability distribution functions for symmetric orientation estimation from rgb images without pose labels
     year: '2022'
   _6l7MQgAAAAJ:gsN89kCJA0AC:
     citations: 0
@@ -86,7 +86,7 @@ papers:
     title: 'MOTPose: Multi-object 6D Pose Estimation for Dynamic Video Sequences using Attention-based Temporal Fusion'
     year: '2024'
   _6l7MQgAAAAJ:qjMakFHDy7sC:
-    citations: 26
+    citations: 27
     title: Robust 6D object pose estimation in cluttered scenes using semantic segmentation and pose regression networks
     year: '2018'
   _6l7MQgAAAAJ:tYavs44e6CUC:
@@ -98,11 +98,11 @@ papers:
     title: Efficient Methods for Learning Visual Multi-object 6D Pose Estimation and Tracking
     year: '2025'
   _6l7MQgAAAAJ:u-x6o8ySG0sC:
-    citations: 112
+    citations: 109
     title: 'Nimbro Picking: Versatile part handling for warehouse automation'
     year: '2017'
   _6l7MQgAAAAJ:u5HHmVD_uO8C:
-    citations: 38
+    citations: 41
     title: Supervised Autonomy for Exploration and Mobile Manipulation in Rough Terrain with a Centaur-like Robot
     year: '2016'
   _6l7MQgAAAAJ:uLbwQdceFCQC:
@@ -110,6 +110,6 @@ papers:
     title: Towards 3D scene understanding using differentiable rendering
     year: '2023'
   _6l7MQgAAAAJ:zYLM7Y9cAGgC:
-    citations: 107
+    citations: 109
     title: "Remote mobile manipulation with the centauro robot: Full\u2010body telepresence and autonomous operator assistance"
     year: '2020'
