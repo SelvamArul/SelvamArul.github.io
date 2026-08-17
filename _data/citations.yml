@@ -1,5 +1,5 @@
 metadata:
-  last_updated: '2026-08-10'
+  last_updated: '2026-08-17'
 papers:
   _6l7MQgAAAAJ:-f6ydRqryjwC:
     citations: 5
@@ -10,7 +10,7 @@ papers:
     title: Robust 6D Object Pose Estimation in Cluttered Scenes using Semantic Segmentation and Pose Regression Networks
     year: '2018'
   _6l7MQgAAAAJ:2osOgNQ5qMEC:
-    citations: 120
+    citations: 121
     title: Fast object learning and dual-arm coordination for cluttered stowing, picking, and packing
     year: '2018'
   _6l7MQgAAAAJ:5ugPr518TE4C:
