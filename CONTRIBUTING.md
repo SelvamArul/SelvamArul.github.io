@@ -8,7 +8,7 @@ We welcome your pull requests (PRs).
 For minor fixes (e.g., documentation improvements), feel free to submit a PR directly.
 If you would like to implement a new feature or a bug, please make sure you (or someone else) has opened an appropriate issue first; in your PR, please mention the issue it addresses.
 
-Note that since [#2048](https://github.com/alshedivat/al-folio/pull/2048) al-folio uses the [prettier formatter](https://prettier.io/) for its code, meaning all new submitted code must conform to its standard. If you don't have `prettier` installed for your setup and the `prettier` code check fails when submitting a PR, you can check the referred failed action in our repo. In that action there will be an artifact with an HTML diff showing the needed changes.
+Note that since [#2048](https://github.com/alshedivat/al-folio/pull/2048) al-folio uses the [prettier formatter](https://prettier.io/) for its code, meaning all new submitted code must conform to its standard. After `npm ci`, run `npm run format:check` before pushing (the same check runs in CI). A Husky `pre-commit` hook runs that command automatically when hooks are enabled (`npm ci` runs `prepare` → `husky`). To fix formatting locally: `npm run format`. If you don't have `prettier` installed for your setup and the `prettier` code check fails when submitting a PR, you can check the referred failed action in our repo. In that action there will be an artifact with an HTML diff showing the needed changes.
 
 ## GitHub Copilot Agents
 
