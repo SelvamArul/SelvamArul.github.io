@@ -3,7 +3,7 @@ layout: post
 title: Rust vs. Go error handling
 date: 2026-02-13 15:09:00
 description: Rust vs. Go error handling
-tags: rust go
+tags: Software-Engineering
 categories: programming-laguages
 featured: false
 ---
